@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abhishek Alva — AI PM in the making, jack of all trades.">
+  <title>Abhishek Alva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Apply saved theme before paint to avoid a flash
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <a href="#top" class="nav-logo" aria-label="Abhishek Alva, home"><span class="nav-logo-num" aria-hidden="true">00</span>Aa</a>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#journey">Journey</a>
+      <a href="#education">Education</a>
+      <a href="#into">What I'm into</a>
+      <a href="work.html">See my work</a>
+      <a href="#contact">Get in touch</a>
+    </nav>
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-text">
+        <span class="tile tile-lg load" style="--d: 0" aria-hidden="true">
+          <span class="tile-num">01</span>
+          <span class="tile-sym">Pm</span>
+          <span class="tile-name">Product Manager</span>
+        </span>
+        <p class="eyebrow load" style="--d: 1">// hey there, I'm</p>
+        <h1 class="load" style="--d: 2">Abhishek <span class="accent">Alva</span></h1>
+        <p class="tagline load" style="--d: 3">AI PM in the making. Jack of all trades. Professional over-enthusiast.</p>
+        <div class="hero-actions load" style="--d: 4">
+          <a href="work.html" class="btn">See my work <span aria-hidden="true">→</span></a>
+          <a href="#contact" class="btn btn-outline">Get in touch</a>
+        </div>
+      </div>
+      <figure class="hero-photo load" style="--d: 3">
+        <img src="photo.jpg" alt="Portrait of Abhishek Alva">
+        <figcaption>Fig. 01 — AI PM, in the making</figcaption>
+      </figure>
+    </section>
+
+    <section id="about" class="about reveal">
+      <div class="section-head">
+        <span class="tile" aria-hidden="true"><span class="tile-num">02</span><span class="tile-sym">Ab</span></span>
+        <h2>A little about me</h2>
+      </div>
+      <p>
+        Hey, I'm Abhishek! An AI PM in the making — the kind of person who reads
+        product teardowns for fun and gets <em>way</em> too excited about what AI can
+        do for real people. Proud jack of all trades (and still collecting them).
+      </p>
+      <p>
+        When I'm not geeking out over products, I'm yelling at a match, building a
+        playlist for every mood, or hunting for the next thing to jump off, paddle
+        down, or climb up.
+      </p>
+      <div class="about-actions">
+        <a href="https://www.linkedin.com/in/abhishek-alva" class="btn btn-linkedin" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
+        <a href="resume.pdf" class="btn btn-resume" target="_blank" rel="noopener">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          View Resume
+        </a>
+      </div>
+    </section>
+
+    <section id="journey" class="journey">
+      <div class="section-head reveal">
+        <span class="tile" aria-hidden="true"><span class="tile-num">03</span><span class="tile-sym">Jr</span></span>
+        <h2>The journey so far</h2>
+      </div>
+      <ol class="timeline">
+        <li class="timeline-item reveal">
+          <span class="timeline-date">2019</span>
+          <h3>Chemical Engineering graduate</h3>
+          <p class="timeline-org">NITK Surathkal</p>
+          <p>Where it all started — swapped reactors and process flows for people and products.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-date">2019 – 2020</span>
+          <h3>Key Account Manager</h3>
+          <p class="timeline-org">Trashin</p>
+          <p>First taste of the real world: owning customer relationships end to end.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-date">2020 – 2023</span>
+          <h3>Enterprise Account Executive</h3>
+          <p class="timeline-org">Roado</p>
+          <p>Leveled up to enterprise deals and longer, bigger conversations.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-date">2023 – 2024</span>
+          <h3>Senior Account Executive</h3>
+          <p class="timeline-org">Niveus</p>
+          <p>Stepped into a senior role and sharpened the craft.</p>
+        </li>
+        <li class="timeline-item timeline-current reveal">
+          <span class="timeline-date">2025 – Present</span>
+          <h3>Founding Account Executive</h3>
+          <p class="timeline-org">Pump</p>
+          <p>Building from day one — and setting my sights on AI product next.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="education" class="education">
+      <div class="section-head reveal">
+        <span class="tile" aria-hidden="true"><span class="tile-num">04</span><span class="tile-sym">Ed</span></span>
+        <h2>Education &amp; certifications</h2>
+      </div>
+      <div class="edu-grid">
+        <article class="degree reveal">
+          <span class="degree-label">// the formula</span>
+          <h3>B.Tech in Chemical Engineering</h3>
+          <p class="timeline-org">NITK Surathkal · 2019</p>
+          <p>Learned to break big, messy systems into inputs, reactions and outputs — still how I think about products.</p>
+          <p class="degree-note"><span aria-hidden="true">+</span> Headed the Flying &amp; Robotics Club: a 40-person team and Wright Flight 2018, which drew 45+ teams from across Karnataka.</p>
+        </article>
+        <ul class="certs">
+          <li class="cert reveal">
+            <span class="cert-sym" aria-hidden="true">Gc</span>
+            <div>
+              <h3>Cloud Digital Leader</h3>
+              <p class="cert-issuer">Google Cloud · 2024</p>
+            </div>
+          </li>
+          <li class="cert reveal">
+            <span class="cert-sym" aria-hidden="true">Ap</span>
+            <div>
+              <h3>AI Product Management Cohort</h3>
+              <p class="cert-issuer">Shravan Tikkoo</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="into" class="into">
+      <div class="section-head reveal">
+        <span class="tile" aria-hidden="true"><span class="tile-num">05</span><span class="tile-sym">In</span></span>
+        <h2>What I'm into</h2>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="card-num" aria-hidden="true">06</span>
+          <span class="card-sym" aria-hidden="true">Ai</span>
+          <h3>AI &amp; Product</h3>
+          <p>Figuring out how AI turns into products people actually love using.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-num" aria-hidden="true">07</span>
+          <span class="card-sym" aria-hidden="true">Sp</span>
+          <h3>Sports</h3>
+          <p>Watching, playing, and having very strong opinions about both.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-num" aria-hidden="true">08</span>
+          <span class="card-sym" aria-hidden="true">Mu</span>
+          <h3>Music</h3>
+          <p>There's a playlist for everything. I've probably made it.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-num" aria-hidden="true">09</span>
+          <span class="card-sym" aria-hidden="true">Ad</span>
+          <h3>Adventure</h3>
+          <p>If it involves heights, water, or a mild adrenaline rush — I'm in.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact reveal">
+      <div class="section-head">
+        <span class="tile" aria-hidden="true"><span class="tile-num">10</span><span class="tile-sym">Ct</span></span>
+        <h2>Let's get in touch</h2>
+      </div>
+      <p>
+        Building something in AI, hiring a PM who speaks fluent customer, or just want
+        to talk sports? My inbox (and my LinkedIn DMs) is always open.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:alvaabhishek15@gmail.com" class="btn">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          alvaabhishek15@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/abhishek-alva" class="btn btn-linkedin" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          Message me on LinkedIn
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made with plain HTML, CSS &amp; a lot of curiosity · © <span id="year"></span> Abhishek Alva</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

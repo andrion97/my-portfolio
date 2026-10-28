@@ -1,0 +1,32 @@
+# OS clutter
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Dependencies (none today, but never commit them)
+node_modules/
+
+# Secrets — never commit. The Supabase service_role key belongs nowhere in this repo.
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local design backups — git history replaces these
+.backups/
+
+# Scratch screenshots (tutorial reference, not used by the site)
+ss1.png
+
+# Claude Code: personal/local settings (shared commands and skills stay committed)
+.claude/settings.local.json

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Product case studies by Abhishek Alva.">
+  <title>Work · Abhishek Alva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Apply saved theme before paint to avoid a flash
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <a href="index.html" class="nav-logo" aria-label="Abhishek Alva, home"><span class="nav-logo-num" aria-hidden="true">00</span>Aa</a>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="index.html#about">About</a>
+      <a href="index.html#journey">Journey</a>
+      <a href="index.html#education">Education</a>
+      <a href="index.html#into">What I'm into</a>
+      <a href="work.html" aria-current="page">See my work</a>
+      <a href="index.html#contact">Get in touch</a>
+    </nav>
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="work-header reveal">
+      <a href="index.html" class="back-link">← Back home</a>
+      <span class="tile tile-lg" aria-hidden="true"><span class="tile-num">10</span><span class="tile-sym">Wk</span><span class="tile-name">Work</span></span>
+      <h1>Things I've been <span class="accent">thinking through</span></h1>
+      <p class="tagline">
+        Concept case studies — how I'd frame, scope, and measure product problems.
+        Real shipped work coming soon.
+      </p>
+    </section>
+
+    <!-- Placeholder concept projects: replace with real case studies as they're ready -->
+    <section class="projects">
+      <article class="project reveal">
+        <span class="project-tag">Concept case study</span>
+        <h2>AI meeting copilot for sales teams</h2>
+        <p class="project-summary">Turning messy sales calls into clean CRM updates and next steps — automatically.</p>
+        <dl class="project-details">
+          <div>
+            <dt>Problem</dt>
+            <dd>Reps spend hours after calls writing notes and updating the CRM, so data is late, thin, or missing.</dd>
+          </div>
+          <div>
+            <dt>Approach</dt>
+            <dd>An LLM listens to the call, drafts a summary, flags risks and next steps, and suggests CRM field updates the rep approves in one click.</dd>
+          </div>
+          <div>
+            <dt>How I'd measure it</dt>
+            <dd>Time spent on post-call admin, CRM field completeness, and weekly active reps.</dd>
+          </div>
+        </dl>
+        <ul class="chips">
+          <li>LLMs</li><li>B2B SaaS</li><li>Workflow design</li>
+        </ul>
+      </article>
+
+      <article class="project reveal">
+        <span class="project-tag">Concept case study</span>
+        <h2>Cutting time-to-value in B2B onboarding</h2>
+        <p class="project-summary">Getting new customers to their first "aha" moment in days instead of weeks.</p>
+        <dl class="project-details">
+          <div>
+            <dt>Problem</dt>
+            <dd>New accounts stall during setup, and many never reach the feature that makes them stick.</dd>
+          </div>
+          <div>
+            <dt>Approach</dt>
+            <dd>Map the activation funnel, define one clear activation event, then replace the generic tour with a role-based setup checklist and in-product nudges.</dd>
+          </div>
+          <div>
+            <dt>How I'd measure it</dt>
+            <dd>Activation rate, median time-to-activation, and 90-day retention by cohort.</dd>
+          </div>
+        </dl>
+        <ul class="chips">
+          <li>Activation</li><li>Funnel analysis</li><li>Experimentation</li>
+        </ul>
+      </article>
+
+      <article class="project reveal">
+        <span class="project-tag">Concept case study</span>
+        <h2>Churn early-warning for account managers</h2>
+        <p class="project-summary">Spotting at-risk customers before they go quiet — not after they cancel.</p>
+        <dl class="project-details">
+          <div>
+            <dt>Problem</dt>
+            <dd>Account managers find out about churn risk too late, usually at renewal time.</dd>
+          </div>
+          <div>
+            <dt>Approach</dt>
+            <dd>Combine usage drops, support tickets, and stakeholder changes into a simple health score, with a weekly "who needs a call" list and suggested plays.</dd>
+          </div>
+          <div>
+            <dt>How I'd measure it</dt>
+            <dd>Gross revenue retention, share of at-risk accounts contacted within a week, and score precision.</dd>
+          </div>
+        </dl>
+        <ul class="chips">
+          <li>Predictive models</li><li>Customer success</li><li>Dashboards</li>
+        </ul>
+      </article>
+
+      <article class="project reveal">
+        <span class="project-tag">Concept case study</span>
+        <h2>Self-serve support assistant</h2>
+        <p class="project-summary">An AI assistant that answers from the help docs — and knows when to hand off to a human.</p>
+        <dl class="project-details">
+          <div>
+            <dt>Problem</dt>
+            <dd>Support queues fill up with repeat questions that are already answered in the docs.</dd>
+          </div>
+          <div>
+            <dt>Approach</dt>
+            <dd>Retrieval-augmented chat grounded in the knowledge base, with cited answers, a confidence threshold, and smooth escalation to an agent with full context.</dd>
+          </div>
+          <div>
+            <dt>How I'd measure it</dt>
+            <dd>Deflection rate, resolution satisfaction, escalation accuracy, and answer-hallucination rate from spot checks.</dd>
+          </div>
+        </dl>
+        <ul class="chips">
+          <li>RAG</li><li>AI safety</li><li>Support ops</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="contact reveal">
+      <h2>Like how I think?</h2>
+      <p>I'd love to hear about the problems you're working on.</p>
+      <div class="hero-actions">
+        <a href="index.html#contact" class="btn">Get in touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made with plain HTML, CSS &amp; a lot of curiosity · © <span id="year"></span> Abhishek Alva</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
