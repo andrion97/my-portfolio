@@ -23,6 +23,8 @@
   --btn-outline-text: #0d1526;
   --btn-shadow: #3d5a0a;
   --hard-shadow: #0d1526;
+  --danger: #b42318;
+  --backdrop: rgba(10, 17, 32, 0.6);
   --radius: 6px;
   --max: 1080px;
   --font: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -48,6 +50,7 @@
     --btn-outline-text: #c6f432;
     --btn-shadow: #3b4f7a;
     --hard-shadow: #3b4f7a;
+  --danger: #ff8a7a;
   }
 }
 
@@ -68,6 +71,7 @@
   --btn-outline-text: #c6f432;
   --btn-shadow: #3b4f7a;
   --hard-shadow: #3b4f7a;
+  --danger: #ff8a7a;
 }
 
 /* ---------- Base ---------- */
@@ -725,6 +729,110 @@ a:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; }
   border-radius: 2px;
 }
 
+/* ---------- Subscribe popup ---------- */
+button.btn { border: 0; font-family: inherit; font-size: inherit; cursor: pointer; }
+button.btn:disabled { opacity: 0.6; cursor: progress; transform: none; }
+.btn-outline:focus-visible,
+.btn:focus-visible,
+.dialog-close:focus-visible,
+.subscribe-dialog input:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; }
+
+.subscribe-dialog {
+  width: min(100% - 2rem, 460px);
+  margin: auto;
+  padding: 2.25rem 2rem 2rem;
+  border: 1.5px solid var(--text);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 8px 8px 0 var(--hard-shadow);
+}
+
+.subscribe-dialog[open] { animation: dialog-in 0.25s ease-out; }
+.subscribe-dialog::backdrop { background: var(--backdrop); backdrop-filter: blur(3px); }
+
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+}
+
+.subscribe-dialog .tile { width: 52px; height: 52px; margin-bottom: 1.25rem; background: var(--accent); color: #0a1120; border-color: #0a1120; }
+.subscribe-dialog .tile-sym { font-size: 1.2rem; }
+.subscribe-dialog h2 { font-size: 1.75rem; margin-bottom: 0.6rem; padding-right: 2.5rem; }
+.subscribe-dialog > p { color: var(--muted); margin-bottom: 1.5rem; }
+
+.dialog-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dialog-close:hover { background: var(--accent-soft); color: var(--text); }
+
+#subscribe-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-text);
+}
+
+#subscribe-form input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem; /* 16px+ stops iOS zooming into the field */
+  transition: border-color 0.2s;
+}
+
+#subscribe-form input:focus { border-color: var(--text); }
+#subscribe-form input[aria-invalid="true"] { border-color: var(--danger); }
+
+.form-error { min-height: 1.5rem; margin: 0.4rem 0 0.75rem; font-size: 0.9rem; color: var(--danger); }
+
+#subscribe-form .btn { width: 100%; justify-content: center; }
+
+/* Honeypot: off-screen for people, still fillable by bots */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  z-index: 100;
+  max-width: calc(100% - 2rem);
+  padding: 0.85rem 1.25rem;
+  border-radius: 4px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  box-shadow: 4px 4px 0 var(--btn-shadow);
+  opacity: 0;
+  transform: translate(-50%, 1rem);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
 /* ---------- Footer ---------- */
 .footer {
   text-align: center;
@@ -747,7 +855,8 @@ a:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .load, .theme-toggle.spin svg { animation: none; }
+  .load, .theme-toggle.spin svg, .subscribe-dialog[open] { animation: none; }
+  .toast { transition: none; }
   body { transition: none; }
 }
 

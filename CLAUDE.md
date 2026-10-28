@@ -45,8 +45,11 @@ Adding a section means renumbering the tiles after it and adding a nav link in b
 - No npm, no build steps, no bundlers
 - The site must work by simply opening index.html in a browser
 
-## Supabase (planned, not yet added)
-- No `.env` — browsers can't read it without a build step. Put the Project URL + anon key in a `config.js` loaded before script.js, with a comment marking them as public keys
+## Supabase
+- No `.env` for the site — browsers can't read it without a build step. Project URL + publishable key live in `config.js` (committed, loaded before script.js on every page)
+- No supabase-js: script.js calls the REST API with `fetch`, sending the publishable key as the `apikey` header only (it isn't a JWT, so no `Authorization: Bearer`)
+- Schema lives in `supabase/*.sql`, applied with the Supabase MCP server (`.mcp.json`) via `apply_migration`; keep the file and the migration in sync. Project ref `obgszuddwuykojsqrqym` (named my-portfolio). Run `get_advisors` (security) after any DDL
+- Subscribe popup (`<dialog id="subscribe-dialog">`, opened by any `[data-subscribe]` button, markup duplicated in both pages) inserts into `subscribers`. Visitors are granted insert on `email` only, no select, so a duplicate shows up as HTTP 409, not a lookup. Emails are NOT synced to Substack — export/import manually
 - The anon key is public by design; Row Level Security must be enabled on every table
 - Never put the service_role key in any file in this repo
 
@@ -54,7 +57,8 @@ Adding a section means renumbering the tiles after it and adding a nav link in b
 - index.html — the main page
 - work.html — "See my work" page (concept case studies for now)
 - styles.css — all styles in a separate file
-- script.js — shared behaviour (footer year, theme toggle, mobile menu, scroll reveal)
+- script.js — shared behaviour (footer year, theme toggle, mobile menu, scroll reveal, subscribe popup)
+- config.js — public Supabase URL + publishable key
 - resume.pdf — linked from the "View Resume" button
 - photo.jpg — profile photo
 - .claude/ — project commands (add-section, mobile-check) and the portfolio-polish skill

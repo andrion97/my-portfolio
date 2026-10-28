@@ -149,14 +149,38 @@
       <p>I'd love to hear about the problems you're working on.</p>
       <div class="hero-actions">
         <a href="index.html#contact" class="btn">Get in touch</a>
+        <button type="button" class="btn btn-outline" data-subscribe>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16M4 9h16M4 14h16v6l-8-4-8 4z"/></svg>
+          Subscribe to my Substack
+        </button>
       </div>
     </section>
   </main>
+
+  <dialog class="subscribe-dialog" id="subscribe-dialog" aria-labelledby="subscribe-title">
+    <button type="button" class="dialog-close" aria-label="Close">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <span class="tile" aria-hidden="true"><span class="tile-sym">Ss</span></span>
+    <h2 id="subscribe-title">Get my Substack in your inbox</h2>
+    <p>New posts on AI, products and whatever I'm obsessing over. No spam.</p>
+    <form id="subscribe-form" novalidate>
+      <label for="subscribe-email">Email</label>
+      <input type="email" id="subscribe-email" name="email" autocomplete="email" placeholder="you@example.com" required autofocus aria-describedby="subscribe-error">
+      <div class="hp" aria-hidden="true">
+        <label for="subscribe-website">Website</label>
+        <input type="text" id="subscribe-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <p class="form-error" id="subscribe-error" aria-live="polite"></p>
+      <button type="submit" class="btn">Subscribe</button>
+    </form>
+  </dialog>
 
   <footer class="footer">
     <p>Made with plain HTML, CSS &amp; a lot of curiosity · © <span id="year"></span> Abhishek Alva</p>
   </footer>
 
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

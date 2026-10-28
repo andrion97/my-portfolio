@@ -1,4 +1,4 @@
-// Shared behaviour for every page: footer year, theme toggle, mobile menu, scroll reveal
+// Shared behaviour for every page: footer year, theme toggle, mobile menu, scroll reveal, subscribe popup
 
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -54,4 +54,98 @@ if ('IntersectionObserver' in window) {
   revealEls.forEach((el) => observer.observe(el));
 } else {
   revealEls.forEach((el) => el.classList.add('visible'));
+}
+
+// ---------- Subscribe popup ----------
+// Saves the email to Supabase (config.js) via the REST API; RLS lets visitors insert but never read.
+const subscribeDialog = document.getElementById('subscribe-dialog');
+
+if (subscribeDialog) {
+  const form = document.getElementById('subscribe-form');
+  const emailInput = document.getElementById('subscribe-email');
+  const honeypot = document.getElementById('subscribe-website');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const errorEl = document.getElementById('subscribe-error');
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+  document.body.append(toast);
+  let toastTimer;
+
+  const showToast = (message) => {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 4000);
+  };
+
+  const setError = (message) => {
+    errorEl.textContent = message;
+    emailInput.setAttribute('aria-invalid', String(Boolean(message)));
+  };
+
+  const setSending = (sending) => {
+    submitBtn.disabled = sending;
+    submitBtn.textContent = sending ? 'Subscribing…' : 'Subscribe';
+  };
+
+  const finish = (message) => {
+    subscribeDialog.close();
+    showToast(message);
+  };
+
+  document.querySelectorAll('[data-subscribe]').forEach((btn) => btn.addEventListener('click', () => {
+    form.reset();
+    setError('');
+    setSending(false);
+    subscribeDialog.showModal();
+  }));
+
+  subscribeDialog.querySelector('.dialog-close').addEventListener('click', () => subscribeDialog.close());
+  // Clicking the dimmed backdrop (the dialog element itself, outside its content) closes it
+  subscribeDialog.addEventListener('click', (e) => { if (e.target === subscribeDialog) subscribeDialog.close(); });
+  emailInput.addEventListener('input', () => setError(''));
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = emailInput.value.trim().toLowerCase();
+
+    if (!emailInput.checkValidity() || !email.includes('.')) {
+      setError('Please enter a valid email address.');
+      emailInput.focus();
+      return;
+    }
+
+    // Bots fill every field; people never see this one. Pretend it worked.
+    if (honeypot.value) return finish("You're subscribed. Thanks!");
+
+    if (typeof SUPABASE_URL === 'undefined') {
+      setError('Subscriptions are unavailable right now. Please try again later.');
+      return;
+    }
+
+    setSending(true);
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/subscribers`, {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_PUBLISHABLE_KEY,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal',
+        },
+        body: JSON.stringify({ email }),
+        signal: AbortSignal.timeout(10000),
+      });
+
+      if (res.ok) return finish("You're subscribed. Thanks!");
+      if (res.status === 409) return finish("You're already on the list.");
+      setError('Something went wrong. Please try again.');
+    } catch (err) {
+      setError("Couldn't connect. Check your internet and try again.");
+    } finally {
+      setSending(false);
+    }
+  });
 }
